@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap"
+        type="text/css"
+    />
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='fonts/icomoon/style.css') }}"
+        type="text/css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"
+        type="text/css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+        type="text/css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+        type="text/css"
+    />
+
+    <title>Your Info</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h3> Egyptian citizins in Germany Stats </h3>  
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <img src="{{url_for('static', filename='images/heatmap.png')}}" class="img-fluid" alt="heatmap"> </img>
+              <h4 class="text-center"> Heat Map </h4>
+            </div>
+
+            <div class="col-md-6 form-group">
+              <img src="{{url_for('static', filename='images/cartogram.png')}}" class="img-fluid" alt="heatmap"> </img>
+              <h4 class="text-center"> Cartogram </h4>
+            </div>
+          </div>
+
+      </div>
+  </div>
+    
+
+    <script src={{ url_for('static', filename="js/jquery-3.3.1.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/popper.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/bootstrap.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/jquery.validate.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/main.js") }}></script>
+  </body>
+</html>

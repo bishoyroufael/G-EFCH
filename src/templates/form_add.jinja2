@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap"
+        type="text/css"
+    />
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='fonts/icomoon/style.css') }}"
+        type="text/css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"
+        type="text/css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+        type="text/css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+        type="text/css"
+    />
+
+    <title>Your Info</title>
+  </head>
+
+  
+
+  <body>
+  
+
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+          <div class="row align-items-center">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+
+              <h2 class="mb-5">Tell us about yourself.</h2>
+
+              <form class="border-right pr-5 mb-5" method="post" id="contactForm" name="contactForm">
+              {{ form.csrf_token }}
+
+
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    {{ form.fname(class="form-control") }}
+                  </div>
+
+                  <div class="col-md-6 form-group">
+                    {{ form.lname(class="form-control") }}
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    {{ form.email(class="form-control") }}
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                  {{ form.phone(class="form-control") }}
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                  {{ form.state(class="form-control") }}
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                  {{ form.city(class="form-control") }}
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    {{ form.job(class="form-control") }}
+                  </div>
+
+                  <div class="col-md-6 form-group">
+                    {{ form.company(class="form-control") }}
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    {{ form.recaptcha }}
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="submit" value="Submit" class="btn btn-primary rounded-1 py-2 px-4">
+                    <span class="submitting"></span>
+                  </div>
+                </div>
+
+
+              </form>
+
+              <div id="form-message-warning"></div> 
+              <div id="form-message-success">
+                Your message was sent, thank you!
+              </div>
+
+            </div>
+            <div class="col-lg-4 ml-auto">
+              <h3 class="mb-4">Why to fill this?</h3>
+              <p>This form will let the Egyptian Embassy in Berlin know about your profession, giving them the possibility to contact you for competitive job opportunities back in Egypt!</p>
+              <p><a href="#">Read more</a></p>
+              <p><a href="{{url_for('stats_user')}}">Egyptians stats</a></p>
+            </div>
+          </div>
+        </div>  
+        </div>
+      </div>
+  </div>
+    
+    <script> 
+      let state_select = document.getElementById('state');
+      let city_select = document.getElementById('city');
+      state_select.onchange = function(){
+        state = state_select.options[state_select.selectedIndex].text;
+        fetch('/city/' + state).then(function(response){
+          response.json().then(function(data){
+            let optionHTML = '';
+            for(let city of data.cities){
+              optionHTML += '<option value="' + city.id + '">' + city.name + '</option>';
+            }
+            city_select.innerHTML = optionHTML;
+          
+          })
+          
+        })
+      }
+
+    </script>
+
+    <script src={{ url_for('static', filename="js/jquery-3.3.1.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/popper.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/bootstrap.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/jquery.validate.min.js") }}></script>
+    <script src={{ url_for('static', filename="js/main.js") }}></script>
+  </body>
+</html>
