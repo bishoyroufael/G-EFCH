@@ -30,3 +30,13 @@ You need to have [Anaconda3](https://www.anaconda.com/products/distribution) ins
 - Can we cache the latest statistics results instead of recomputing the stats for all users every time a new user is added? 
 - Use [celery](https://github.com/celery/celery) alongside with [redis](https://redis.io/) to manage background heavy task instead of forking a new process to run in the background
 - Adding more statistics and charts
+
+# Preview
+## Main form screen
+![Main Form Image](assets/images/MainForm.PNG)
+
+
+## Stats screen 
+![Stats Image](assets/images/Stats.PNG)
+
+
